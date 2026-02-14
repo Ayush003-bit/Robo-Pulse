@@ -1,74 +1,71 @@
 
 
   import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 import Logo from "../assets/Logo.png";
-import { Menu, X } from "lucide-react"; // install lucide-react if not present
 
-export function Navbar() {
-  const [open, setOpen] = useState(false);
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    "Home",
-    "About-Us",
-    "Our-Services",
-    "School-Program",
-    "Our-Products",
-    "Testimonial",
-    "Team",
-    "Composite-Skill-Lab",
-    "Contact-Us",
+  const navLinks = [
+    { name: "Home", id: "home" },
+    { name: "About Us", id: "about" },
+    { name: "Our Services", id: "services" },
+    { name: "Our Products", id: "products" },
+    { name: "Mission & Vision", id: "mission" },
+    { name: "Team", id: "team" },
+    { name: "Courses", id: "courses" },
+    { name: "Gallery", id: "gallery" },
+    { name: "Contact Us", id: "contact" },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 backdrop-blur-md shadow-lg">
-      <div className="flex items-center justify-between px-6 md:px-12 h-[80px]">
+    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
 
         {/* Logo */}
-        <div className="flex items-center">
+        <a href="#home" className="flex items-center gap-2">
           <img
-            className="h-14 w-14 md:h-20 md:w-20 rounded-full p-2 bg-white/20 hover:scale-105 transition duration-300"
             src={Logo}
-            alt="Logo"
+            alt="RoboPulse"
+            className="w-16 h-16 rounded-full object-cover border-2 border-cyan-500"
           />
-        </div>
+        </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 text-base">
-          {navItems.map((item, index) => (
-            <a
-              key={index}
-              href={`#${item}`}
-              className="relative text-white font-medium px-2 py-1 transition duration-300
-              hover:text-stone-900
-              after:content-[''] after:absolute after:left-0 after:-bottom-1
-              after:h-[2px] after:w-0 after:bg-stone-900
-              after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {item.replace("-", " ")}
-            </a>
+        {/* Desktop Links */}
+        <ul className="hidden lg:flex gap-8 font-medium text-gray-700">
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <a
+                href={`#${link.id}`}
+                className="relative hover:text-cyan-500 transition duration-300 group"
+              >
+                {link.name}
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* Hamburger Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={32} /> : <Menu size={32} />}
-        </button>
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-gradient-to-b from-blue-500 to-cyan-500 px-6 pb-6 space-y-4 text-center">
-          {navItems.map((item, index) => (
+      {isOpen && (
+        <div className="lg:hidden bg-white shadow-md px-6 py-6 space-y-4">
+          {navLinks.map((link) => (
             <a
-              key={index}
-              href={`#${item}`}
-              onClick={() => setOpen(false)}
-              className="block text-white text-lg font-medium hover:text-stone-900 transition"
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => setIsOpen(false)}
+              className="block text-gray-700 hover:text-cyan-500 transition"
             >
-              {item.replace("-", " ")}
+              {link.name}
             </a>
           ))}
         </div>
@@ -76,5 +73,3 @@ export function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;

@@ -60,7 +60,7 @@ export function Services() {
     <>
       <div className="w-full px-6 md:px-20 py-16 bg-gray-50">
            
-             <h1 className=" text-center text-2xl md:text-4xl font-bold text-gray-900 mb-6 underline">Our Services</h1>
+             <h1 className=" text-center text-2xl md:text-4xl font-bold text-gray-900 mb-6">Our Services</h1>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {
