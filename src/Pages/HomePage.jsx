@@ -1,6 +1,9 @@
 
   import React from "react";
-  import Navbar from "../Components/Navbar";
+
+  import { useEffect } from "react";
+  import { useLocation } from "react-router-dom";
+  
   import HeroSection from "../Components/Hero"
   import About from "../Components/AboutUs";
   import Services from "../Components/Services";
@@ -10,13 +13,26 @@
   import CourseOverview from "../Components/CourseOverview";
   import Gallery from "../Components/Gallery";
   import ContactSection from "../Components/ContactUs";
-  import Footer from "../Components/Footer";
+  
 
   export function Home() {
+
+               const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+
        return(
           <>
           
-          <Navbar/>
+          
           <section id="home" className="scroll-mt-24"><HeroSection /></section>
           <section id="about" className="scroll-mt-24"><About /></section>
           <section id="services" className="scroll-mt-24"><Services /></section>
@@ -26,7 +42,7 @@
          <section id="courses" className="scroll-mt-24"><CourseOverview/></section>
           <section id="gallery" className="scroll-mt-24"><Gallery /></section>
          <section id="contact" className="scroll-mt-24"><ContactSection/></section>
-         <Footer/>
+         
 
           
           </>

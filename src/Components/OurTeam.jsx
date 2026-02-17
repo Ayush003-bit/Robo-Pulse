@@ -1,5 +1,7 @@
 
   import React from "react";
+  import CEO from "../assets/CEO-Robopulse.jpeg"
+  import CFO from "../assets/CFO-Robopulse.jpeg"
 
 export function Team() {
   const Team = [
@@ -7,17 +9,14 @@ export function Team() {
       id: 1,
       name: "Gaurav Sonkar",
       designation: "Chief Executive Officer",
+      img: CEO
     },
     {
       id: 2,
       name: "Ashish Dubey",
       designation: "Chief Finance Officer",
-    },
-    {
-      id: 3,
-      name: "Manish Khanna",
-      designation: "Director",
-    },
+      img: CFO
+    }
   ];
 
   return (
@@ -31,9 +30,9 @@ export function Team() {
           <div key={item.id}>
             <div className="bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group">
 
-              {/* Avatar placeholder */}
-              <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl font-bold group-hover:scale-110 transition duration-300">
-                {item.name.charAt(0)}
+              {/* Image */}
+              <div className="w-20 h-20 mx-auto mb-5 rounded-full flex items-center justify-center  group-hover:scale-110 transition duration-300">
+                    <img className="w-20 h-20 rounded-full" src={item.img} alt="" />
               </div>
 
               <p className="text-xl font-semibold text-gray-800 mb-1">

@@ -1,22 +1,26 @@
 
 
   import React, { useState } from "react";
+  import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+
 import Logo from "../assets/Logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", id: "home" },
-    { name: "About Us", id: "about" },
-    { name: "Our Services", id: "services" },
-    { name: "Our Products", id: "products" },
-    { name: "Mission & Vision", id: "mission" },
-    { name: "Team", id: "team" },
-    { name: "Courses", id: "courses" },
-    { name: "Gallery", id: "gallery" },
-    { name: "Contact Us", id: "contact" },
+    { name: "Home", path: "/#home" },
+    { name: "About", path: "/#about" },
+    { name: "Services", path: "/#services" },
+    { name: "Products", path: "/#products" },
+    { name: "Mission", path: "/#mission" },
+    { name: "Team", path: "/#team" },
+    { name: "Courses", path: "/#courses" },
+    { name: "Gallery", path :"/#gallery" },
+    { name: "Contact", path: "/#contact" },
+    {name: "Resources", path: "/resources"},
+    {name: "Impact", path: "/impact"}
   ];
 
   return (
@@ -24,25 +28,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
 
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
+        <Link to={"/#home"} className="flex items-center gap-2">
           <img
             src={Logo}
             alt="RoboPulse"
             className="w-16 h-16 rounded-full object-cover border-2 border-cyan-500"
           />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <ul className="hidden lg:flex gap-8 font-medium text-gray-700">
           {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
+            <li key={link.name}>
+              <Link
+                to={link.path}
                 className="relative hover:text-cyan-500 transition duration-300 group"
               >
                 {link.name}
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -59,14 +63,14 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white shadow-md px-6 py-6 space-y-4">
           {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
+            <Link
+              key={link.name}
+              to={link.path}
               onClick={() => setIsOpen(false)}
               className="block text-gray-700 hover:text-cyan-500 transition"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
       )}

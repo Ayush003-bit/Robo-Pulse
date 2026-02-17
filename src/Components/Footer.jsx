@@ -1,11 +1,11 @@
 
   import React from "react";
 import Logo from "../assets/Logo.png";
-import { Facebook, Instagram, Linkedin, Twitter, Heart } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Heart, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-blue-950 text-white px-6 py-12">
+    <footer className="bg-linear-to-br from-slate-900 to-blue-950 text-white px-6 py-12">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
 
         {/* Left Side */}
@@ -40,16 +40,22 @@ export default function Footer() {
             >
               <Linkedin size={20} />
             </a>
-
+  
             <a
-              href="https://twitter.com"
+              href="https://robopulseintelli@gmail.com"
               target="_blank"
               rel="noreferrer"
               className="p-3 bg-white/10 rounded-full hover:bg-sky-500 transition duration-300 transform hover:scale-110"
             >
-              <Twitter size={20} />
+              <Mail size={20} />
             </a>
+
           </div>
+
+
+         
+
+
 
           <p className="text-gray-400 text-sm mt-4">
             © {new Date().getFullYear()} RoboPulse Intelligence. All rights reserved.

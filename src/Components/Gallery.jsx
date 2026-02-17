@@ -5,6 +5,11 @@ import Image2 from "../assets/RoboPulseImg2.png";
 import Image3 from "../assets/RoboPulseimg3.png";
 import Image4 from "../assets/RobopulseImg4.png";
 import Image5 from "../assets/RoboPulseImg5.png";
+import Image6 from "../assets/GalImg1.jpeg"
+import Image7 from "../assets/GalImg2.jpeg"
+import Image8 from "../assets/GalImg3.jpeg"
+import Image9 from "../assets/GalImg4.jpeg"
+import Image10 from "../assets/GalImg5.jpeg"
 
 export function Gallery() {
   const gallery = [
@@ -13,6 +18,11 @@ export function Gallery() {
     { id: 3, img: Image3 },
     { id: 4, img: Image4 },
     { id: 5, img: Image5 },
+    { id: 6, img: Image6 },
+    { id: 7, img: Image7 },
+    { id: 8, img: Image8 },
+    { id: 9, img: Image9 }
+
   ];
 
   return (
