@@ -39,7 +39,7 @@ export function Team() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20">
         {Team.map((item) => (
           <div key={item.id}>
-            <div className="bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group w-100 h-100">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group w-auto h-auto">
 
               {/* Image */}
               <div className="w-20 h-20 mx-auto mb-5 rounded-full flex items-center justify-center  group-hover:scale-110 transition duration-300">
