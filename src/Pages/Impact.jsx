@@ -8,7 +8,7 @@ export function Impact() {
    const [activeSection, setActiveSection] = useState("school");
 
    return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 pt-24">
+      <div className="w-full min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-100 pt-24">
 
          {/* Page Heading */}
          <div className="max-w-7xl mx-auto px-6 mb-12">
